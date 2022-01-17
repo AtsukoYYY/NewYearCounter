@@ -8,21 +8,25 @@ const Counter = (props) => {
   };
   const now = new Date();
 
-  const CalcDay = (xday, now) => {
-    if (xday - now < 0) return 0;
-    return Math.floor((xday - now) / 86400000);
+  const CalcDay = (xday: Date, now: Date) => {
+    const diff = xday.getTime() - now.getTime();
+    if (diff < 0) return 0;
+    return Math.floor(diff / 86400000);
   };
-  const CalcHour = (xday, now) => {
-    if (xday - now < 0) return 0;
-    return Math.floor((xday - now) / 3600000) % 24;
+  const CalcHour = (xday: Date, now: Date) => {
+    const diff = xday.getTime() - now.getTime();
+    if (diff < 0) return 0;
+    return Math.floor(diff / 3600000) % 24;
   };
-  const CalcMinute = (xday, now) => {
-    if (xday - now < 0) return 0;
-    return Math.floor((xday - now) / 60000) % 60;
+  const CalcMinute = (xday: Date, now: Date) => {
+    const diff = xday.getTime() - now.getTime();
+    if (diff < 0) return 0;
+    return Math.floor(diff / 60000) % 60;
   };
-  const CalcSecond = (xday, now) => {
-    if (xday - now < 0) return 0;
-    return Math.floor((xday - now) / 1000) % 60;
+  const CalcSecond = (xday: Date, now: Date) => {
+    const diff = xday.getTime() - now.getTime();
+    if (diff < 0) return 0;
+    return Math.floor(diff / 1000) % 60;
   };
 
   const [day, setDay] = useState(CalcDay(xday.date, now));
