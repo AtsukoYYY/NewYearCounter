@@ -1,7 +1,10 @@
 import "./styles.css";
 import React, { useState } from "react";
-
-const Counter = (props) => {
+type Props = {
+  name: string;
+  date: Date;
+};
+const Counter = (props: Props) => {
   const xday = {
     name: props.name,
     date: new Date(props.date)
